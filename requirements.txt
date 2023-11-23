@@ -1,0 +1,15 @@
+Click
+clickclick
+protobuf==3.20.1
+pandas
+numpy==1.19.2  # server version 1.19.2
+dateparser
+pyyaml
+matplotlib
+seaborn
+torch
+torchvision
+pytorch-lightning==0.8.5
+tensorboard==2.2.2
+notebook
+
