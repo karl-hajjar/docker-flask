@@ -3,7 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# @app.route('/')
+HOST = "0.0.0.0"
+
+
 @click.command()
 @click.option('--port', '-p', required=False, type=click.INT, default=None,
               help='Port to communicate with the server')
@@ -11,6 +13,8 @@ app = Flask(__name__)
               help='Host address to define server')
 def run_app(port=None, host='0.0.0.0'):
     print('port / host from click command : {} / {}'.format(port, host))
+    if host is None:
+        host = HOST
     if port is None:
         print('Running on PORT :', 'default')
         app.run(debug=True, host=host)
