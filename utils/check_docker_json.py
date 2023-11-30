@@ -22,8 +22,10 @@ def check_json_config():
     print('')
     json_config["credStore"] = "desktop"
     if "credsStore" in json_config.keys():
+        print('Removing corrupted key credsStore from docker json config')
         json_config.pop("credsStore")
 
     dump_json(json_config, DOCKER_CONFIG_PATH)
     print('Dumped json config:\n', json_config)
+    print('')
 

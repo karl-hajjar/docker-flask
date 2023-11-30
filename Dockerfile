@@ -15,6 +15,7 @@ CMD [ "python3", "main.py"]
 # docker stop container_id
 # docker rm container_id
 # docker rmi image_name
+# docker rm $(docker ps -a -f status=exited -q) --> REMOVING exited containers
 
 # Expected ~/.docker/config.json JSON config
 #{
