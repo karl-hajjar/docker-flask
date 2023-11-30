@@ -23,9 +23,17 @@ def run_app(port=None, host='0.0.0.0'):
         app.run(debug=True, host=host, port=port)
 
 
-@app.route('/', methods=['POST', 'GET'])
-def hello():
+@app.route('/', methods=['GET'])
+def base():
     return '<h1>Hello from Flask & Docker !!</h2>'
+
+
+@app.route('/action/<port>', methods=['POST', 'GET'])
+def hello(port=9999):
+    if (port is None) or (port == ""):
+        return '<h1>Hello from Flask & Docker from default !!</h2>'
+    else:
+        return '<h1>Hello from Flask & Docker from port {:} !!</h2>'.format(port)
 
 
 if __name__ == "__main__":
